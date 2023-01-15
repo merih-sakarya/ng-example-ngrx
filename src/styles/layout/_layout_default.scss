@@ -1,0 +1,54 @@
+.layout-default {
+  height: 100%;
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  background: #fff;
+
+  &__header {
+    color: #fff;
+    padding: 0px 24px;
+    background: linear-gradient(90deg, rgba(8, 227, 5, 1) 0%, rgba(8, 173, 191, 1) 50%, rgba(39, 8, 205, 1) 100%);
+
+    .header {
+      height: 45px;
+      padding: 10px 0;
+
+      &__logo {
+        top: 14px;
+        position: relative;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      &__menu {
+        float: right;
+        margin-top: 2px;
+
+        button {
+          padding: 0 6px;
+        }
+      }
+
+      &__icon {
+        margin: 0 8px;
+        cursor: pointer;
+      }
+
+      &__divider {
+        top: 8px;
+        position: relative;
+        height: 24px;
+        background: #fff;
+        display: inline-block;
+      }
+    }
+  }
+
+  &__content {
+    flex: auto;
+    padding: 32px 48px;
+  }
+}

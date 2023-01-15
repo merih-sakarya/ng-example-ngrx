@@ -1,0 +1,16 @@
+.tnt-empty {
+  margin-top: 70px;
+
+  &__icon {
+    color: $warning-color;
+    font-size: 150px;
+    height: 150px !important;
+    width: 150px !important;
+  }
+
+  &__description {
+    font-size: 18px;
+    margin-top: 10px;
+    opacity: 0.5;
+  }
+}

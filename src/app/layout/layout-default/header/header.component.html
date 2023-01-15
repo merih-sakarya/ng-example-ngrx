@@ -1,0 +1,28 @@
+<!-- Alternatively, you can use "mat-toolbar" and "mat-sidenav" to create a responsive menu. -->
+<div class="header">
+  <div class="header__logo" [routerLink]="['/']">LOGO</div>
+
+  <div class="header__menu">
+    <button mat-icon-button class="header__icon" [routerLink]="['/notifications']">
+      <ng-container *ngIf="unreadNotifications$ | async as unreadNotifications">
+        <mat-icon [matBadge]="unreadNotifications.length" [matBadgeHidden]="!unreadNotifications.length" matBadgeColor="warn"
+          >notifications_none</mat-icon
+        >
+      </ng-container>
+    </button>
+
+    <mat-divider class="header__divider" vertical="true"></mat-divider>
+
+    <ng-container *ngIf="currentUser$ | async as currentUser">
+      <button data-test="header-menu" mat-button [matMenuTriggerFor]="menu">
+        <mat-icon class="header__icon">person_outline</mat-icon> {{ currentUser.email }}
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/settings']" disabled>Settings</button>
+        <mat-divider></mat-divider>
+        <button data-test="header-logout" mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+    </ng-container>
+  </div>
+</div>

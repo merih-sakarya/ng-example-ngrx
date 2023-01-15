@@ -1,0 +1,20 @@
+<div class="pg-notification">
+  <div class="tnt-card">
+    <div class="tnt-card__header">Notifications</div>
+
+    <div class="tnt-card__content">
+      <ng-container *ngIf="notifications$ | async as notifications">
+        <ng-container *ngIf="!notifications.length">
+          <app-empty icon="notification_important" description="You don't have any notifications!"></app-empty>
+        </ng-container>
+
+        <div *ngFor="let notification of notifications" class="tnt-list">
+          {{ notification.message }}
+          <button mat-icon-button color="warn" (click)="delete(notification.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

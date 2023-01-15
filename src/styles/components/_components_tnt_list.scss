@@ -1,0 +1,14 @@
+.tnt-list {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  place-content: stretch space-between;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 12px 4px;
+
+  &:hover {
+    background-color: #fafafa !important;
+  }
+}

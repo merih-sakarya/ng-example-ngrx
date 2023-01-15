@@ -1,0 +1,17 @@
+<div class="pg-login">
+  <div class="pg-login__box">
+    <form fxLayout="column" [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input data-test="login-username" type="email" matInput formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input data-test="login-password" type="password" matInput formControlName="password" />
+      </mat-form-field>
+
+      <button data-test="login-submit" mat-raised-button color="primary" type="submit">Login</button>
+    </form>
+  </div>
+</div>

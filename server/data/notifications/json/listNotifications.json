@@ -1,0 +1,14 @@
+[
+  {
+    "id": 2,
+    "status": "LEVEL3",
+    "message": "Nunc eget ex porta, mollis libero at, tincidunt mauris.",
+    "isUnread": true
+  },
+  {
+    "id": 1,
+    "status": "LEVEL1",
+    "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "isUnread": true
+  }
+]
