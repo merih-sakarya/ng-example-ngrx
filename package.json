@@ -38,6 +38,7 @@
     "@angular/router": "^14.2.0",
     "@ngneat/until-destroy": "^9.2.2",
     "@ngrx/effects": "^14.3.2",
+    "@ngrx/router-store": "^14.3.2",
     "@ngrx/store": "^14.3.2",
     "@ngrx/store-devtools": "^14.3.2",
     "lorem-ipsum": "^2.0.8",

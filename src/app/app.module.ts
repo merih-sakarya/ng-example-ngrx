@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
@@ -13,7 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { httpInterceptorProviders } from '@core/interceptors';
-import { metaReducers } from './meta-reducers';
+import { metaReducers } from './store/reducers/meta-reducer';
+import { CustomSerializer } from './store/reducers/router-reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,10 +27,15 @@ import { metaReducers } from './meta-reducers';
     CoreModule,
     SharedModule,
     LayoutModule,
-    // forRoot function is used to specify a NgRx feature module that will be used for the root of the application.
-    // It should be used only once in the root module of your application.
-    StoreModule.forRoot({}, { metaReducers }),
+    // StoreModule.forRoot is imported once in the root module, accepting a reducer function or object map of reducer functions.
+    StoreModule.forRoot({ router: routerReducer }, { metaReducers }),
+    // EffectsModule.forRoot() is imported once in the root module and sets up the effects class to be initialized immediately when the application starts.
     EffectsModule.forRoot([]),
+    // @ngrx/router-store keeps router state up-to-date in the store.
+    StoreRouterConnectingModule.forRoot({
+      serializer: CustomSerializer
+    }),
+    // Store devtools instrument the store retaining past versions of state and recalculating new states. This enables powerful time-travel debugging.
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [...httpInterceptorProviders],
